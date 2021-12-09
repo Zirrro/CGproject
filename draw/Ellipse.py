@@ -83,5 +83,5 @@ def midptellipse(xc, yc, rx, ry):
     plt.show()
 
 
-if __name__ == '__main__':
-    midptellipse(50, 50, 10, 15)
+# if __name__ == '__main__':
+#     midptellipse(50, 50, 10, 15)

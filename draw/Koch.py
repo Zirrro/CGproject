@@ -27,7 +27,7 @@ def DrawKoch():
     penup()
     backward(length / 2.0)
     pendown()
-    snowflake(length, 7)
+    snowflake(length, 4)
     mainloop()
 
 
