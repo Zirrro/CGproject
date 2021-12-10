@@ -15,7 +15,6 @@ from PyQt5.QtCore import QProcess
 from draw.BresenhamLine import bresLine
 from draw.BresenhamCircle import bresCir
 from draw.Ellipse import midptellipse
-from draw.FieldFill import boundary_fill
 from draw.BezierCurve import DrawBezeriCurve
 from draw.BSplineCurve import DrawBSplineCurve
 # editEnd
@@ -41,11 +40,6 @@ class Ui_MainWindow(object):
         xc = int(self.ellipse_x.text())
         yc = int(self.ellipse_y.text())
         midptellipse(xc, yc, rx, ry)
-
-    def fieldFill(self, MainWindow):
-        x = int(self.area_x.text())
-        y = int(self.area_y.text())
-        boundary_fill(x, y)
 
     def drawBezier(self, MainWindow):
         x1 = int(self.BezierCurve_x1.text())
@@ -207,15 +201,9 @@ class Ui_MainWindow(object):
         self.label_39 = QtWidgets.QLabel(self.horizontalLayoutWidget_4)
         self.label_39.setObjectName("label_39")
         self.horizontalLayout.addWidget(self.label_39)
-        self.area_x = QtWidgets.QLineEdit(self.horizontalLayoutWidget_4)
-        self.area_x.setObjectName("area_x")
-        self.horizontalLayout.addWidget(self.area_x)
         self.label_41 = QtWidgets.QLabel(self.horizontalLayoutWidget_4)
         self.label_41.setObjectName("label_41")
         self.horizontalLayout.addWidget(self.label_41)
-        self.area_y = QtWidgets.QLineEdit(self.horizontalLayoutWidget_4)
-        self.area_y.setObjectName("area_y")
-        self.horizontalLayout.addWidget(self.area_y)
         self.tabWidget.addTab(self.tab_3, "")
         self.tab_4 = QtWidgets.QWidget()
         self.tab_4.setObjectName("tab_4")
@@ -396,6 +384,9 @@ class Ui_MainWindow(object):
         self.generate_fern_btn = QtWidgets.QPushButton(self.tab_5)
         self.generate_fern_btn.setGeometry(QtCore.QRect(320, 310, 121, 61))
         self.generate_fern_btn.setObjectName("generate_fern_btn")
+        self.label_42 = QtWidgets.QLabel(self.tab_5)
+        self.label_42.setGeometry(QtCore.QRect(470, 260, 111, 16))
+        self.label_42.setObjectName("label_42")
         self.tabWidget.addTab(self.tab_5, "")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
@@ -414,8 +405,9 @@ class Ui_MainWindow(object):
         self.generate_line_btn.clicked.connect(self.drawBreLine)
         self.generate_circle_btn.clicked.connect(self.drawBreCircle)
         self.generate_ellipse_btn.clicked.connect(self.drawEllipse)
-        self.area_btn.clicked.connect(self.fieldFill)
         self.generate_bezier_btn.clicked.connect(self.drawBezier)
+        self.generate_BSpline_btn.clicked.connect(self.drawBSpline)
+        self.area_btn.clicked.connect(lambda checked, arg="python " + "draw/FieldFill.py": self.execute(arg))
         self.generate_koch_btn.clicked.connect(lambda checked, arg="python " + "draw/Koch.py": self.execute(arg))
         self.generate_Mandelbrot_btn.clicked.connect(lambda checked, arg="python " + "draw/Mandelbrot.py": self.execute(arg))
         self.generate_julia_btn.clicked.connect(lambda checked, arg="python " + "draw/Julia.py": self.execute(arg))
@@ -455,10 +447,8 @@ class Ui_MainWindow(object):
         self.bres_y2.setText(_translate("MainWindow", "142"))
         self.area_btn.setText(_translate("MainWindow", "区域填充"))
         self.label_40.setText(_translate("MainWindow", "种子点坐标"))
-        self.label_39.setText(_translate("MainWindow", "x"))
-        self.area_x.setText(_translate("MainWindow", "61"))
-        self.label_41.setText(_translate("MainWindow", "y"))
-        self.area_y.setText(_translate("MainWindow", "25"))
+        self.label_39.setText(_translate("MainWindow", "x = 61"))
+        self.label_41.setText(_translate("MainWindow", "y = 25"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_3), _translate("MainWindow", "图元生成"))
         self.generate_bezier_btn.setText(_translate("MainWindow", "绘制Bezier曲线"))
         self.generate_BSpline_btn.setText(_translate("MainWindow", "绘制B-样条曲线"))
@@ -515,6 +505,7 @@ class Ui_MainWindow(object):
         self.generate_Mandelbrot_btn.setText(_translate("MainWindow", "Mandelbrot"))
         self.generate_julia_btn.setText(_translate("MainWindow", "Julia"))
         self.generate_fern_btn.setText(_translate("MainWindow", "蕨类植物"))
+        self.label_42.setText(_translate("MainWindow", "Julia集生成可能较慢"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_5), _translate("MainWindow", "分形图形生成"))
 
     def execute(self, filePath):

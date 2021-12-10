@@ -1,5 +1,14 @@
 from PIL import Image
 import sys
+import os
+
+sys.setrecursionlimit(10000)
+# Window path
+imgpath = os.path.join(os.getcwd(), 'imgs\\1.bmp')
+
+# test path
+# imgpath = os.path.join(os.path.abspath(os.path.dirname(os.getcwd())), 'imgs\\1.bmp')
+im = Image.open(imgpath)
 
 '''
 X, y:种子点，需要在填充区域内部
@@ -7,11 +16,8 @@ Filled_color:要填充的颜色
 Boundary_color:边界颜色
 '''
 
-im = Image.open("../imgs/1.bmp")
-
-
 def boundary_fill(x, y):
-    filled_color = (0, 255, 0)
+    filled_color = (0, 255, 255)
     boundary_color = (0, 0, 0)
     global im
     width = im.size[0]
@@ -25,10 +31,8 @@ def boundary_fill(x, y):
             boundary_fill(x, y - 1)
     return im
 
-
-# if __name__ == "__main__":
-#     sys.setrecursionlimit(10000)
-#     a = boundary_fill(61, 25)
-#     a.show()
+Image.open(imgpath).show()
+boundary_fill(61, 25).show()
+# a.show()
 
 # https://github.com/cccxu/Basic-graphics-generation-algorithm--python

@@ -26,7 +26,7 @@ def DrawBSplineCurve(x1, y1, x2, y2, x3, y3, x4, y4, x5, y5, x6, y6, x7, y7, x8,
     plt.plot(out[0], out[1], 'b', linewidth=2.0, label='B-spline curve')
     plt.legend(loc='best')
     plt.axis([min(x) - 1, max(x) + 1, min(y) - 1, max(y) + 1])
-    plt.title('Cubic B-spline curve evaluation')
+    plt.title('B-spline curve')
     plt.show()
 
 # https://github.com/kawache/Python-B-spline-examples
