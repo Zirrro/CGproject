@@ -60,13 +60,3 @@ def DrawBezeriCurve(x1, y1, x2, y2, x3, y3):
     Show()
     plt.plot(xLast, yLast)
     plt.show()
-
-
-# def main():
-#     DrawBezeriCurve(1,1,6,13,15,0)
-#
-#
-# if __name__ == '__main__':
-#     main()
-
-# https://blog.csdn.net/qq_47867028/article/details/116355539

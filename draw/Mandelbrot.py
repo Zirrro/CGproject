@@ -3,7 +3,6 @@ import numpy as np
 
 
 def get_iter(c: complex, thresh: int = 4, max_steps: int = 25) -> int:
-    # to find if a complex number diverges under max_steps and if it does then when
     # Z_(n) = (Z_(n-1))^2 + c
     # Z_(0) = c
     z = c
@@ -25,10 +24,9 @@ def plotter(n, thresh, max_steps=25):
             img[y][x] = 255 - it
     return img
 
-n=1000
+
+n = 1000
 img = plotter(n, thresh=4, max_steps=50)
 plt.imshow(img, cmap="plasma")
 plt.axis("off")
 plt.show()
-
-# https://levelup.gitconnected.com/mandelbrot-set-with-python-983e9fc47f56

@@ -34,5 +34,3 @@ def boundary_fill(x, y):
 Image.open(imgpath).show()
 boundary_fill(61, 25).show()
 # a.show()
-
-# https://github.com/cccxu/Basic-graphics-generation-algorithm--python

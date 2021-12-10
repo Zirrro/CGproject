@@ -18,8 +18,6 @@ def bresLine(x1, y1, x2, y2):
         x2, y2 = y2, x2
 
     p = 2 * dy - dx
-    # print('x = %s, y = %s' % (x, y))
-    # initialize the plotting points
     xcoordinates = [x]
     ycoordinates = [y]
 
@@ -32,21 +30,8 @@ def bresLine(x1, y1, x2, y2):
 
         x = x + 1 if x < x2 else x - 1
 
-        # print('x = %s, y = %s' % (x, y))
         xcoordinates.append(x)
         ycoordinates.append(y)
 
     plt.plot(xcoordinates, ycoordinates)
     plt.show()
-
-
-# def main():
-#     x1 = int(input("x1:"))
-#     y1 = int(input("y1:"))
-#     x2 = int(input("x2:"))
-#     y2 = int(input("y2:"))
-#     bresLine(x1, y1, x2, y2)
-#
-#
-# if __name__ == '__main__':
-#     main()
