@@ -1,6 +1,6 @@
 from PIL import Image
 
-if __name__ == "__main__":
+def DrawJulia():
 
     w, h, zoom = 1920, 1080, 1
 

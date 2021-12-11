@@ -23,13 +23,3 @@ def DrawKoch():
     pendown()
     snowflake(length, 4)
     mainloop()
-
-
-if __name__ == "__main__":
-    speed(0)
-    length = 300.0
-    penup()
-    backward(length / 2.0)
-    pendown()
-    snowflake(length, 5)
-    mainloop()
