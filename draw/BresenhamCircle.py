@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-img = np.zeros((105, 105))
+img = np.zeros((30, 30))
 
 
 def bresCir(x_center, y_center, r):
@@ -19,7 +19,7 @@ def bresCir(x_center, y_center, r):
           y + y_center, ")",
           sep="", end="")
 
-    if (r > 0):
+    if r > 0:
         print("(", x + x_center, ", ",
               -y + y_center, ")",
               sep="", end="")
@@ -50,7 +50,7 @@ def bresCir(x_center, y_center, r):
             x -= 1
             P = P + 2 * y - 2 * x + 1
 
-        if (x < y):
+        if x < y:
             break
 
         print("(", x + x_center, ", ", y + y_center,

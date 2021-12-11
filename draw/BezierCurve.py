@@ -18,7 +18,7 @@ def DrawBezeriCurve(x1, y1, x2, y2, x3, y3):
 
     def BezierPoint():
         for i in range(len(xLast)):
-            plt.plot(xLast[i], yLast[i], '*')
+            plt.plot(xLast[i], yLast[i], 'o')
         return
 
     def Draw(x, y, num):
@@ -30,8 +30,8 @@ def DrawBezeriCurve(x1, y1, x2, y2, x3, y3):
             plt.plot([x0, x1], [y0, y1])
             xLast.append(getValue(x0, x1, i / cnt))
             yLast.append(getValue(y0, y1, i / cnt))
-            plt.plot(xLast[i], yLast[i], '*')
-            plt.pause(0.2)
+            plt.plot(xLast[i], yLast[i], 'o')
+            # plt.pause(0.1)
         else:
             xNext = []
             yNext = []
@@ -39,7 +39,7 @@ def DrawBezeriCurve(x1, y1, x2, y2, x3, y3):
                 xNext.append(getValue(x[j], x[j + 1], i / cnt))
                 yNext.append(getValue(y[j], y[j + 1], i / cnt))
             plt.plot(xNext, yNext)
-            plt.pause(0.2)
+            # plt.pause(0.2)
             Draw(xNext, yNext, num - 1)
         return
 
